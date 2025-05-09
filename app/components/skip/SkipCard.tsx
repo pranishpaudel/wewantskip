@@ -34,28 +34,29 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   };
 
   return (
-    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border- border-x-gray-800">
-      <CardContent className="p-0">
+    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border-1 border-gray-800 ">
+    <CardContent className="p-0 bg-black">
+
         {/* Image */}
         <Image
           src="https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg"
-          alt={`Skip ${skip.size} Yard`}
-          width={200}
-          height={200}
-          className="w-full h-auto rounded-xl mb-4"
-        />
+         alt={`Skip ${skip.size} Yard`}
+  width={200}
+  height={200}
+  className="w-full h-48 object-cover rounded-xl mb-4"
+/>
 
         {/* Size and Yard Info */}
         <div className="flex items-center space-x-2 mb-4">
           <p className="text-3xl font-bold text-blue-600">{skip.size}</p>
-          <p className="text-xl font-medium text-gray-700">Yard Skip</p>
+          <p className="text-xl font-medium text-neutral-300">Yard Skip</p>
         </div>
 
         {/* Hire Period */}
-        <p className="text-gray-700 mb-4 font-bold">Hire Period: {skip.hire_period_days} Days</p>
+        <p className="text-neutral-300 mb-4 font-bold ">Hire Period: {skip.hire_period_days} Days</p>
 
         {/* Features */}
-        <div className="flex items-center space-x-4 mb-4">
+        <div className="flex items-center space-x-4 mb-4 ">
           {/* Allowed on Road */}
           <div className="flex items-center">
             <div
@@ -72,7 +73,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
                 </svg>
               )}
             </div>
-            <p className="text-sm text-gray-600 ml-2">Allowed on Road</p>
+            <p className="text-sm text-neutral-200 ml-2">Allowed on Road</p>
           </div>
 
           {/* Allows Heavy Waste */}
@@ -91,13 +92,13 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
                 </svg>
               )}
             </div>
-            <p className="text-sm text-gray-600 ml-2">Allows Heavy Waste</p>
+            <p className="text-sm text-neutral-200 ml-2">Allows Heavy Waste</p>
           </div>
         </div>
 
         {/* Price */}
         <div className="mt-4">
-          <p className="text-xl font-bold text-gray-900">£{totalPrice.toFixed(2)} (incl. VAT)</p>
+          <p className="text-xl font-bold text-neutral-300">£{totalPrice.toFixed(2)} (incl. VAT)</p>
         </div>
       </CardContent>
 
