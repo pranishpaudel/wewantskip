@@ -61,7 +61,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
           <div className="flex items-center">
             <div
               className={`w-6 h-6 rounded-full flex items-center justify-center 
-                ${skip.allowed_on_road ? "bg-gray-800 glow" : "bg-white border-2 border-gray-400"}`}
+                ${skip.allowed_on_road ? "bg-gray-800 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
               {skip.allowed_on_road && (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -80,7 +80,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
           <div className="flex items-center">
             <div
               className={`w-6 h-6 rounded-full flex items-center justify-center 
-                ${skip.allows_heavy_waste ? "bg-blue-600 glow" : "bg-white border-2 border-gray-400"}`}
+                ${skip.allows_heavy_waste ? "bg-blue-600 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
               {skip.allows_heavy_waste && (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
