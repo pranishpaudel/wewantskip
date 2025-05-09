@@ -1,4 +1,3 @@
-// app/components/SkipCard.tsx
 import React from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/app/ui/Card";
@@ -6,15 +5,18 @@ import ClientButton from "./client-components/ClientButton";
 import CheckIcon from "@/public/icons/CheckIcon";
 import { SkipCardProps } from "@/app/types/Skip";
 
-
-
 const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const totalPrice = skip.price_before_vat + skip.vat;
+  const isDisabled = !skip.allowed_on_road && !skip.allows_heavy_waste;
+
+  const baseCardStyles =
+    "bg-black rounded-2xl shadow-md p-6 max-w-sm border border-gray-800 transition-all";
+  const hoverStyles = isDisabled ? "" : "hover:border-2 hover:shadow-neutral-950";
+  const disabledStyles = isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer";
 
   return (
-    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border-1 border-gray-800 hover:border-2 hover:shadow-neutral-950">
+    <Card className={`${baseCardStyles} ${hoverStyles} ${disabledStyles}`}>
       <CardContent className="p-0 bg-black">
-
         {/* Image */}
         <Image
           src="https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg"
@@ -31,7 +33,9 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
         </div>
 
         {/* Hire Period */}
-        <p className="text-neutral-300 mb-4 font-bold ">Hire Period: {skip.hire_period_days} Days</p>
+        <p className="text-neutral-300 mb-4 font-bold">
+          Hire Period: {skip.hire_period_days} Days
+        </p>
 
         {/* Features */}
         <div className="flex items-center space-x-4 mb-4 ">
@@ -41,9 +45,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
               className={`w-6 h-6 rounded-full flex items-center justify-center 
                 ${skip.allowed_on_road ? "bg-gray-800 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
-              {skip.allowed_on_road && (
-                <CheckIcon />
-              )}
+              {skip.allowed_on_road && <CheckIcon />}
             </div>
             <p className="text-sm text-neutral-200 ml-2">Allowed on Road</p>
           </div>
@@ -54,9 +56,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
               className={`w-6 h-6 rounded-full flex items-center justify-center 
                 ${skip.allows_heavy_waste ? "bg-blue-600 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
-              {skip.allows_heavy_waste && (
-                <CheckIcon />
-              )}
+              {skip.allows_heavy_waste && <CheckIcon />}
             </div>
             <p className="text-sm text-neutral-200 ml-2">Allows Heavy Waste</p>
           </div>
