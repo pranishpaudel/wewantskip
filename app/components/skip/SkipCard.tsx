@@ -1,18 +1,18 @@
-import React from "react";
-import Image from "next/image";
-import { Card, CardContent, CardFooter } from "@/app/ui/Card";
-import ClientButton from "./client-components/ClientButton";
-import CheckIcon from "@/public/icons/CheckIcon";
-import { SkipCardProps } from "@/app/types/Skip";
+import React from 'react';
+import Image from 'next/image';
+import { Card, CardContent, CardFooter } from '@/app/ui/Card';
+import ClientButton from './client-components/ClientButton';
+import CheckIcon from '@/public/icons/CheckIcon';
+import { SkipCardProps } from '@/app/types/Skip';
 
 const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const totalPrice = skip.price_before_vat + skip.vat;
   const isDisabled = !skip.allowed_on_road && !skip.allows_heavy_waste;
 
   const baseCardStyles =
-    "bg-black rounded-2xl shadow-md p-6 max-w-sm border border-gray-800 transition-all";
-  const hoverStyles = isDisabled ? "" : "hover:shadow-lg hover:shadow-neutral-800";
-  const disabledStyles = isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer";
+    'bg-black rounded-2xl shadow-md p-6 max-w-sm border border-gray-800 transition-all';
+  const hoverStyles = isDisabled ? '' : 'hover:shadow-lg hover:shadow-neutral-800';
+  const disabledStyles = isDisabled ? 'cursor-not-allowed opacity-70' : 'cursor-pointer';
 
   return (
     <Card className={`${baseCardStyles} ${hoverStyles} ${disabledStyles}`}>
@@ -33,9 +33,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
         </div>
 
         {/* Hire Period */}
-        <p className="text-neutral-300 mb-4 font-bold">
-          Hire Period: {skip.hire_period_days} Days
-        </p>
+        <p className="text-neutral-300 mb-4 font-bold">Hire Period: {skip.hire_period_days} Days</p>
 
         {/* Features */}
         <div className="flex items-center space-x-4 mb-4 ">
@@ -43,7 +41,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
           <div className="flex items-center">
             <div
               className={`w-6 h-6 rounded-full flex items-center justify-center 
-                ${skip.allowed_on_road ? "bg-gray-800 glow" : "bg-gray-900 border-2 border-gray-400"}`}
+                ${skip.allowed_on_road ? 'bg-gray-800 glow' : 'bg-gray-900 border-2 border-gray-400'}`}
             >
               {skip.allowed_on_road && <CheckIcon />}
             </div>
@@ -54,7 +52,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
           <div className="flex items-center">
             <div
               className={`w-6 h-6 rounded-full flex items-center justify-center 
-                ${skip.allows_heavy_waste ? "bg-blue-600 glow" : "bg-gray-900 border-2 border-gray-400"}`}
+                ${skip.allows_heavy_waste ? 'bg-blue-600 glow' : 'bg-gray-900 border-2 border-gray-400'}`}
             >
               {skip.allows_heavy_waste && <CheckIcon />}
             </div>

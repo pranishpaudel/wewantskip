@@ -1,11 +1,11 @@
 // components/CheckIcon.tsx
 
-import React from "react";
+import React from 'react';
 
 const CheckIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className={`h-4 w-4 text-white ${props.className ?? ""}`}
+    className={`h-4 w-4 text-white ${props.className ?? ''}`}
     viewBox="0 0 20 20"
     fill="currentColor"
     {...props}

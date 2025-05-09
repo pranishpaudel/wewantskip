@@ -2,8 +2,6 @@
 import { create } from 'zustand';
 import { Skip } from '../types/Skip';
 
-
-
 interface SkipState {
   selectedSkip: Skip | null;
   selectSkip: (skip: Skip) => void;

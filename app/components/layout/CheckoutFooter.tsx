@@ -1,7 +1,7 @@
 // app/components/checkout-footer.tsx
-"use client";
-import { ArrowRight } from "lucide-react";
-import { useSkipStore } from "@/app/store/skipStore";
+'use client';
+import { ArrowRight } from 'lucide-react';
+import { useSkipStore } from '@/app/store/skipStore';
 
 export default function CheckoutFooter() {
   const selectedSkip = useSkipStore((state) => state.selectedSkip);
@@ -9,17 +9,17 @@ export default function CheckoutFooter() {
 
   const totalPrice = selectedSkip
     ? (selectedSkip.price_before_vat + selectedSkip.vat).toFixed(2)
-    : "0.00";
+    : '0.00';
 
   const handleBack = () => {
     clearSelection();
-    console.log("Back button clicked");
+    console.log('Back button clicked');
   };
 
   const handleContinue = () => {
     if (!selectedSkip) return;
     alert(`You have selected a ${selectedSkip.size} Yard Skip for £${totalPrice}`);
-    console.log("Continue button clicked with skip:", selectedSkip);
+    console.log('Continue button clicked with skip:', selectedSkip);
   };
 
   return (
@@ -29,12 +29,8 @@ export default function CheckoutFooter() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
           {selectedSkip ? (
             <>
-              <span className="text-lg font-medium text-white">
-                {selectedSkip.size} Yard Skip
-              </span>
-              <span className="text-2xl font-bold text-blue-400">
-                £{totalPrice}
-              </span>
+              <span className="text-lg font-medium text-white">{selectedSkip.size} Yard Skip</span>
+              <span className="text-2xl font-bold text-blue-400">£{totalPrice}</span>
               <span className="text-sm text-gray-400">
                 {selectedSkip.hire_period_days} day hire
               </span>
@@ -51,8 +47,8 @@ export default function CheckoutFooter() {
             disabled={!selectedSkip}
             className={`px-5 py-2 rounded text-sm font-semibold transition-colors ${
               selectedSkip
-                ? "bg-gray-800 text-white hover:bg-gray-700"
-                : "bg-gray-800 text-gray-500 cursor-not-allowed"
+                ? 'bg-gray-800 text-white hover:bg-gray-700'
+                : 'bg-gray-800 text-gray-500 cursor-not-allowed'
             }`}
           >
             Back
@@ -62,8 +58,8 @@ export default function CheckoutFooter() {
             disabled={!selectedSkip}
             className={`px-6 py-2 rounded text-sm font-semibold flex items-center transition-colors ${
               selectedSkip
-                ? "bg-blue-600 text-white hover:bg-blue-700"
-                : "bg-gray-800 text-gray-500 cursor-not-allowed"
+                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                : 'bg-gray-800 text-gray-500 cursor-not-allowed'
             }`}
           >
             Continue

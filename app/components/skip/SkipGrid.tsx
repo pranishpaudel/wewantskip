@@ -1,8 +1,8 @@
 // app/components/SkipGrid.tsx
-import ClientSkipCardWrapper from "./client-components/CardClickWrapper";
-import SkipCard from "./SkipCard";
+import ClientSkipCardWrapper from './client-components/CardClickWrapper';
+import SkipCard from './SkipCard';
 
-import { fetchSkips } from "@/app/lib/fetchSkips";
+import { fetchSkips } from '@/app/lib/fetchSkips';
 
 type SkipGridProps = {
   postcode: string;
@@ -17,10 +17,13 @@ const SkipGrid = async ({ postcode, area }: SkipGridProps) => {
   } catch (error) {
     return (
       <div className="w-full text-center py-8">
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+        >
           <strong className="font-bold">Error:</strong>
           <span className="block sm:inline">
-            {error instanceof Error ? error.message : "Unknown error"}
+            {error instanceof Error ? error.message : 'Unknown error'}
           </span>
         </div>
       </div>
