@@ -11,7 +11,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
 
   const baseCardStyles =
     "bg-black rounded-2xl shadow-md p-6 max-w-sm border border-gray-800 transition-all";
-  const hoverStyles = isDisabled ? "" : "hover:border-2 hover:shadow-neutral-950";
+  const hoverStyles = isDisabled ? "" : "hover:shadow-lg hover:shadow-neutral-800";
   const disabledStyles = isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer";
 
   return (
