@@ -2,7 +2,7 @@
 import ClientSkipCardWrapper from "./client-components/CardClickWrapper";
 import SkipCard from "./SkipCard";
 
-import { fetchSkips } from "@/lib/fetchSkips";
+import { fetchSkips } from "@/app/lib/fetchSkips";
 
 type SkipGridProps = {
   postcode: string;
