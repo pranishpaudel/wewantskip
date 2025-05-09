@@ -39,7 +39,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
 
       {/* Size and Yard Info */}
       <div className="flex items-center space-x-2 mb-4">
-        <p className="text-2xl font-bold text-blue-600">{skip.size}</p>
+        <p className="text-3xl font-bold text-blue-600">{skip.size}</p>
         <p className="text-xl font-medium text-gray-700">Yard Skip</p>
       </div>
 
