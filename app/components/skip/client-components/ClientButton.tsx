@@ -4,14 +4,20 @@ import React from "react";
 import { Button } from "@/app/ui/Button";
 
 type ClientButtonProps = {
-  onClick: () => void;
+  skip: {
+    size: number;
+  };
 };
 
-const ClientButton: React.FC<ClientButtonProps> = ({ onClick }) => {
+const ClientButton: React.FC<ClientButtonProps> = ({ skip }) => {
+  const handleClick = () => {
+    alert(`Skip ${skip.size} Yard selected`);
+  };
+
   return (
     <div className="flex justify-center items-center w-full">
       <Button
-        onClick={() => onClick()}
+        onClick={handleClick}
         className="w-4/5 py-3 text-base bg-neutral-900 text-white font-semibold rounded-xl hover:bg-neutral-800"
       >
         Select Skip

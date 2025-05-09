@@ -4,48 +4,25 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/app/ui/Card";
 import ClientButton from "./client-components/ClientButton";
 import CheckIcon from "@/public/icons/CheckIcon";
+import { SkipCardProps } from "@/app/types/Skip";
 
 
-type Skip = {
-  id: number;
-  size: number;
-  hire_period_days: number;
-  transport_cost: number | null;
-  per_tonne_cost: number | null;
-  price_before_vat: number;
-  vat: number;
-  postcode: string;
-  area: string;
-  forbidden: boolean;
-  created_at: string;
-  updated_at: string;
-  allowed_on_road: boolean;
-  allows_heavy_waste: boolean;
-};
-
-type SkipCardProps = {
-  skip: Skip;
-};
 
 const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const totalPrice = skip.price_before_vat + skip.vat;
 
-  const handleClick = () => {
-    alert(`Skip ${skip.size} Yard selected`);
-  };
-
   return (
     <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border-1 border-gray-800 ">
-    <CardContent className="p-0 bg-black">
+      <CardContent className="p-0 bg-black">
 
         {/* Image */}
         <Image
           src="https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg"
-         alt={`Skip ${skip.size} Yard`}
-  width={200}
-  height={200}
-  className="w-full h-48 object-cover rounded-xl mb-4"
-/>
+          alt={`Skip ${skip.size} Yard`}
+          width={200}
+          height={200}
+          className="w-full h-48 object-cover rounded-xl mb-4"
+        />
 
         {/* Size and Yard Info */}
         <div className="flex items-center space-x-2 mb-4">
@@ -65,7 +42,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
                 ${skip.allowed_on_road ? "bg-gray-800 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
               {skip.allowed_on_road && (
-               <CheckIcon/>
+                <CheckIcon />
               )}
             </div>
             <p className="text-sm text-neutral-200 ml-2">Allowed on Road</p>
@@ -78,7 +55,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
                 ${skip.allows_heavy_waste ? "bg-blue-600 glow" : "bg-gray-900 border-2 border-gray-400"}`}
             >
               {skip.allows_heavy_waste && (
-              <CheckIcon/>
+                <CheckIcon />
               )}
             </div>
             <p className="text-sm text-neutral-200 ml-2">Allows Heavy Waste</p>
@@ -92,7 +69,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
       </CardContent>
 
       <CardFooter className="p-0 mt-3">
-        <ClientButton onClick={handleClick}  />
+        <ClientButton skip={skip} />
       </CardFooter>
     </Card>
   );

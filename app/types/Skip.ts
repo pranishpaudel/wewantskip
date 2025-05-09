@@ -14,3 +14,7 @@ export type Skip = {
   allowed_on_road: boolean;
   allows_heavy_waste: boolean;
 };
+
+export type SkipCardProps = {
+  skip: Skip;
+};
