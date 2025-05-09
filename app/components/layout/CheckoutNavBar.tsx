@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, MapPin, Trash2, Truck, Shield, CalendarDays, CreditCard } from 'lucide-react';
 
-const NavBar = ({ currentStep = 3 }) => {
+const CheckoutNavBar = ({ currentStep = 3 }) => {
   const steps = [
     { id: 1, label: 'Postcode', icon: MapPin },
     { id: 2, label: 'Waste Type', icon: Trash2 },
@@ -77,4 +77,4 @@ const NavBar = ({ currentStep = 3 }) => {
   );
 };
 
-export default NavBar;
+export default CheckoutNavBar;
