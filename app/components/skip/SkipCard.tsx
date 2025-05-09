@@ -103,7 +103,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
       </CardContent>
 
       <CardFooter className="p-0 mt-3">
-        <ClientButton onClick={handleClick} skipSize={skip.size} />
+        <ClientButton onClick={handleClick}  />
       </CardFooter>
     </Card>
   );
