@@ -97,12 +97,12 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
         </div>
 
         {/* Price */}
-        <div className="mt-4">
+        <div className="mt-8">
           <p className="text-xl font-bold text-neutral-300">£{totalPrice.toFixed(2)} (incl. VAT)</p>
         </div>
       </CardContent>
 
-      <CardFooter className="p-0 mt-4">
+      <CardFooter className="p-0 mt-3">
         <ClientButton onClick={handleClick} skipSize={skip.size} />
       </CardFooter>
     </Card>

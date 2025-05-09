@@ -13,7 +13,7 @@ const ClientButton: React.FC<ClientButtonProps> = ({ onClick, skipSize }) => {
     <div className="flex justify-center items-center w-full">
       <Button
         onClick={() => onClick()}
-        className="w-3/5 py-2 bg-neutral-900 text-white text-md font-semibold rounded-lg hover:bg-neutral-800 "
+        className="w-3/5 py-2 bg-neutral-900 text-white text-sm font-semibold rounded-lg hover:bg-neutral-800 "
       >
         Select {skipSize} Yard Skip
       </Button>
