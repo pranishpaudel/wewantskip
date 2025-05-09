@@ -2,8 +2,12 @@
 
 export default function Home() {
   return (
-   <div className="">
-   hi
-   </div>
+   <>
+   <div>
+      <h1 className="text-3xl font-bold underline text-white">
+
+      </h1>
+      </div>
+   </>
   );
 }
