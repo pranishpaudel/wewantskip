@@ -1,5 +1,7 @@
 // app/components/SkipGrid.tsx
+import ClientSkipCardWrapper from "./client-components/CardClickWrapper";
 import SkipCard from "./SkipCard";
+
 import { fetchSkips } from "@/lib/fetchSkips";
 
 type SkipGridProps = {
@@ -38,9 +40,9 @@ const SkipGrid = async ({ postcode, area }: SkipGridProps) => {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
           {skips.map((skip) => (
-            <div key={skip.id} className="w-full">
+            <ClientSkipCardWrapper key={skip.id} skip={skip}>
               <SkipCard skip={skip} />
-            </div>
+            </ClientSkipCardWrapper>
           ))}
         </div>
       </div>
