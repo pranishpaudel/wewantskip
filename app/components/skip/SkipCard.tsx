@@ -1,11 +1,8 @@
-"use client";
+// app/components/SkipCard.tsx
 import React from "react";
 import Image from "next/image";
-import { Card,
-    CardContent,
-  CardFooter,
- } from "@/app/ui/Card";
-import { Button } from "@/app/ui/Button";
+import { Card, CardContent, CardFooter } from "@/app/ui/Card";
+import ClientButton from "./client-components/ClientButton";
 
 
 type Skip = {
@@ -31,6 +28,10 @@ type SkipCardProps = {
 
 const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const totalPrice = skip.price_before_vat + skip.vat;
+
+  const handleClick = () => {
+    alert(`Skip ${skip.size} Yard selected`);
+  };
 
   return (
     <Card className="bg-neutral-900 rounded-2xl shadow-md p-6 max-w-sm border-0">
@@ -101,12 +102,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
       </CardContent>
 
       <CardFooter className="p-0 mt-4">
-        <Button
-          onClick={() => alert(`Skip ${skip.size} Yard selected`)}
-          className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-        >
-          Select Skip
-        </Button>
+        <ClientButton onClick={handleClick} skipSize={skip.size} />
       </CardFooter>
     </Card>
   );
