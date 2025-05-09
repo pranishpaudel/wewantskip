@@ -34,7 +34,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   };
 
   return (
-    <Card className="bg-neutral-900 rounded-2xl shadow-md p-6 max-w-sm border-0">
+    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border- border-x-gray-800">
       <CardContent className="p-0">
         {/* Image */}
         <Image

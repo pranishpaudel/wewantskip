@@ -1,8 +1,8 @@
-"use client";
+"use client"
+// app/components/SkipGrid.tsx
 import React from "react";
+import { useSkips } from "../../hooks/useSkips"; // Adjust the path based on your file structure
 import SkipCard from "./SkipCard";
-
-import { useSkips } from "../../hooks/useSkips";
 import SkipCardSkeleton from "./SkipCardSkeleton";
 
 type SkipGridProps = {
@@ -13,26 +13,43 @@ type SkipGridProps = {
 const SkipGrid: React.FC<SkipGridProps> = ({ postcode, area }) => {
   const { skips, loading, error } = useSkips(postcode, area);
 
-  if (loading) {
+  if (error) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <SkipCardSkeleton key={i} />
-        ))}
+      <div className="w-full text-center py-8">
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">Error:</strong>
+          <span className="block sm:inline"> {error}</span>
+        </div>
       </div>
     );
   }
 
-  if (error) {
-    return <p className="text-red-500">{`Error: ${error}`}</p>;
-  }
-
   return (
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 px-4 sm:px-6">
-
-      {skips.map((skip) => (
-        <SkipCard key={skip.id} skip={skip} />
-      ))}
+    <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
+          {loading ? (
+            // Display skeleton loaders while data is loading
+            Array.from({ length: 5 }).map((_, index) => (
+              <div key={`skeleton-${index}`} className="w-full">
+                <SkipCardSkeleton />
+              </div>
+            ))
+          ) : skips.length > 0 ? (
+            // Display actual skip cards
+            skips.map((skip) => (
+              <div key={skip.id} className="w-full">
+                <SkipCard skip={skip} />
+              </div>
+            ))
+          ) : (
+            // No skips found
+            <div className="col-span-full text-center py-8">
+              <p className="text-gray-600">No skips available for this location.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
