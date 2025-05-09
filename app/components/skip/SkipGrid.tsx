@@ -41,7 +41,8 @@ const SkipGrid = async ({ postcode, area }: SkipGridProps) => {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 mb-25">
       <div className="max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+
           {skips.map((skip) => (
             <ClientSkipCardWrapper key={skip.id} skip={skip}>
               <SkipCard skip={skip} />

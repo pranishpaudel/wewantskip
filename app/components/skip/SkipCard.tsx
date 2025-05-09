@@ -10,7 +10,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const isDisabled = !skip.allowed_on_road && !skip.allows_heavy_waste;
 
   const baseCardStyles =
-    'bg-black rounded-2xl shadow-md p-6 max-w-sm border border-gray-800 transition-all';
+    'bg-black rounded-2xl shadow-md p-6 max-w-sm border border-[0.5px] transition-all';
   const hoverStyles = isDisabled ? '' : 'hover:shadow-lg hover:shadow-neutral-800';
   const disabledStyles = isDisabled ? 'cursor-not-allowed opacity-70' : 'cursor-pointer';
 
