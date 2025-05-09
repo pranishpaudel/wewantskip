@@ -12,7 +12,7 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip }) => {
   const totalPrice = skip.price_before_vat + skip.vat;
 
   return (
-    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border-1 border-gray-800 hover:border-2 hover:shadow-lg hover:shadow-gray-900">
+    <Card className="bg-black rounded-2xl shadow-md p-6 max-w-sm border-1 border-gray-800 hover:border-2 hover:shadow-neutral-950">
       <CardContent className="p-0 bg-black">
 
         {/* Image */}
